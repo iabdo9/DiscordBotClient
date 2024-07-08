@@ -305,13 +305,6 @@ async function createWindow() {
 		if (!flags.find((f) => f.includes("GATEWAY_GUILD_MEMBERS"))) {
 			skip.push("GUILD_MEMBERS");
 		}
-		if (!flags.find((f) => f.includes("GATEWAY_MESSAGE_CONTENT"))) {
-			return (event.returnValue = {
-				success: false,
-				message: "MESSAGE_CONTENT is required",
-				skip: [],
-			});
-		}
 		event.returnValue = {
 			success: true,
 			message: `Skip intents: ${skip.join(", ")}`,
